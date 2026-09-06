@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://cck.bteai.top https://cck.btluo.com https://openapi.qoder.com.cn https://api.trae.cn; img-src 'self'">
+	<title>CCK 账号管理器</title>
+	<link rel="stylesheet" href="./css/style.css?v=5">
+	<link rel="icon" type="image/x-icon" href="../assets/icon.ico">
+</head>
+<body>
+	<!-- 登录/注册页 -->
+	<div id="login-view" class="login-view" style="display:none">
+		<div class="login-box">
+			<img src="./logo.png" alt="CCK 账号管理器" style="width:64px;height:64px;margin:0 auto 12px;display:block">
+			<h1>CCK 账号管理器</h1>
+			<div class="subtitle">账号管理客户端</div>
+			<div class="tabs">
+				<button class="tab-btn active" data-tab="login">登录</button>
+				<button class="tab-btn" data-tab="register">注册</button>
+			</div>
+			<div class="error-msg" id="auth-error"></div>
+			<div class="form-group">
+				<label>用户名</label>
+				<input type="text" id="auth-username" placeholder="2-32 个字符" autocomplete="username">
+			</div>
+			<div class="form-group">
+				<label>密码</label>
+				<input type="password" id="auth-password" placeholder="至少 6 位" autocomplete="current-password">
+			</div>
+			<div class="form-group" id="confirm-password-group" style="display:none">
+				<label>确认密码</label>
+				<input type="password" id="auth-confirm-password" placeholder="再次输入密码">
+			</div>
+			<button class="btn btn-primary btn-block" id="auth-submit">登录</button>
+		</div>
+	</div>
+
+	<!-- 主界面 -->
+	<div id="main-view" class="main-view" style="display:none">
+		<header class="topbar">
+			<div class="topbar-left">
+				<img src="./logo.png" alt="CCK 账号管理器" style="width:24px;height:24px;vertical-align:middle">
+				<span class="logo">CCK 账号管理器</span>
+				<span class="badge badge-info" id="user-badge">未登录</span>
+				<span class="credits-display" id="credits-display">余额: -</span>
+				<button class="btn btn-sm btn-primary" id="redeem-btn">使用兑换码</button>
+			</div>
+			<div class="topbar-right">
+				<button class="btn btn-sm btn-secondary" id="refresh-balance">刷新余额</button>
+				<button class="btn btn-sm btn-secondary" id="update-btn">检查更新</button>
+			<button class="btn btn-sm btn-secondary" id="logout-btn">退出</button>
+			</div>
+		</header>
+		<div id="update-banner" class="update-banner" style="display:none"></div>
+		<nav class="tab-bar">
+			<button class="main-tab active" data-view="shop">账号商城</button>
+			<button class="main-tab" data-view="my">我的账号</button>
+		</nav>
+		<main class="content">
+			<!-- 账号商城 -->
+			<section id="shop-view" class="view-section active">
+				<div class="section-header">
+					<h2>可购买账号 <span style="font-size:12px;font-weight:400;color:var(--text-dim)">用一个买一个，不要囤在我的账号中</span></h2>
+					<button class="btn btn-sm btn-secondary" id="refresh-shop">刷新列表</button>
+				</div>
+				<div id="shop-category-tabs" class="shop-tabs"></div>
+				<div id="shop-list" class="account-grid"></div>
+			</section>
+
+			<!-- 我的账号 -->
+			<section id="my-view" class="view-section">
+				<div class="section-header">
+					<h2>我的账号 <span style="font-size:12px;font-weight:400;color:var(--text-dim)">自定义账号仅保存在本机，与平台购买账号互不影响</span></h2>
+					<div style="display:flex;gap:8px">
+						<button class="btn btn-sm btn-primary" id="add-custom-btn">+ 添加自定义账号</button>
+						<button class="btn btn-sm btn-secondary" id="refresh-my">刷新</button>
+					</div>
+				</div>
+				<div id="my-list" class="account-list"></div>
+			</section>
+		</main>
+	</div>
+
+	<!-- Toast 提示 -->
+	<div id="toast" class="toast"></div>
+
+	<script src="./js/app.js?v=23"></script>
+</body>
+</html>
