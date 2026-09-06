@@ -197,7 +197,7 @@ function testWiring() {
 	const apic = readSrc(D('lib/api-client.js'));
 	assert(apic.includes("'https://cck.bteai.top', 'https://cck.btluo.com'"), 'api-client: 双域名清单');
 	assert(main.includes("api.get('/api/version', { timeout: 8000 })"), 'main: 更新检查走 api-client（容灾）');
-	assert(main.includes('api.getActiveBase() + data.download_url'), 'main: 下载链接用活跃域名');
+	assert(main.includes("'https://cck.btluo.com' + data.download_url"), 'main: 下载链接固定官方下载站 cck.btluo.com');
 	assert(html.includes('https://cck.btluo.com'), 'index.html: CSP 含备用域名');
 }
 

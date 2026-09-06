@@ -201,8 +201,8 @@ ipcMain.handle('app:check-update', async () => {
 				// 语义版本比较：仅当线上 latest 严格大于当前版本才算有更新。
 				// 旧逻辑用 !== 判断，会导致 current(1.3.0) 与 latest(1.2.12) 不等时误报"有更新"（方向反了）。
 				const hasUpdate = isNewerVersion(data.latest, currentVersion);
-				// 下载链接用当前活跃域名拼接（双域名指向同一 Worker，均可下载）
-				return { hasUpdate, current: currentVersion, latest: data.latest, downloadUrl: api.getActiveBase() + data.download_url };
+				// 下载链接固定官方下载站 cck.btluo.com（API 检查走双域名容灾，下载入口统一品牌域名）
+				return { hasUpdate, current: currentVersion, latest: data.latest, downloadUrl: 'https://cck.btluo.com' + data.download_url };
 			} catch (e) {
 				return { hasUpdate: false, error: e.message };
 			}
